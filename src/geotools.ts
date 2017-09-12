@@ -13,21 +13,17 @@ export class GeoToools {
       if (feature.geometry.type === 'LineString') {
         const coordinates = (feature.geometry as LineString).coordinates;
         coordinates.forEach((coord: any) => {
-          if (Array.isArray(coord)) {
-            fn(coord);
-          }
+          fn(coord);
         });
       } else if (feature.geometry.type === 'MultiLineString') {
         const coordinates = (feature.geometry as MultiLineString).coordinates;
         coordinates.forEach((lineStringCoords: any) => {
-          if (Array.isArray(lineStringCoords)) {
-            lineStringCoords.forEach(pointArray => {
-              if (Array.isArray(pointArray)) {
-                fn(pointArray);
-              }
-            });
-          }
+          lineStringCoords.forEach((pointArray: number[]) => {
+            fn(pointArray);
+          });
         });
+      } else {
+        throw new Error(`unsupported geometry type: ${feature.geometry.type}`);
       }
     });
   };

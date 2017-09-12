@@ -57,3 +57,21 @@ export const GEO_MULTI_LINESTRING = {
   ]
 };
 
+export const GEO_UNSUPPORTED_TYPE = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {},
+      geometry: {
+        type: "LineStringX",
+        coordinates: [
+          [8.8944831388, 50.127477198499996],
+          [8.8918678042, 50.128425448]
+        ]
+      }
+    }
+  ]
+};
+
+

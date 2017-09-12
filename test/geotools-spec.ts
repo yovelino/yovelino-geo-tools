@@ -1,6 +1,6 @@
 import * as chai from 'chai';
 import { GeoToools } from '../src/geotools';
-import { GEO_LINESTRING, GEO_MULTI_LINESTRING } from './test.geojson';
+import { GEO_LINESTRING, GEO_MULTI_LINESTRING, GEO_UNSUPPORTED_TYPE } from './test.geojson';
 
 const expect = chai.expect;
 
@@ -30,5 +30,14 @@ describe('GeoToools', () => {
     });
     expect(result.length).to.eq(3);
   });
+
+  it('should throw an error if the type is not supported', () => {
+    const geojson = GEO_UNSUPPORTED_TYPE as any;
+
+    expect(() => {
+      GeoToools.processOnEachEntry(geojson, coords => {})
+    }).to.throw('unsupported geometry type: LineStringX');
+    
+  })
 
 });
