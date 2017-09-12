@@ -1,12 +1,10 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "module": "commonjs",
+    "module": "es2015",
     "moduleResolution": "node",
-    "lib": [
-      "esnext"
-    ],
-    "target": "es2015",
+    "lib": ["es6", "dom"],
+    "target": "es5",
     "strict": true,
     "outDir": "./lib",
     "preserveConstEnums": true,
