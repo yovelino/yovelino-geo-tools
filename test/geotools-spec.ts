@@ -37,7 +37,7 @@ describe('GeoToools', () => {
     expect(() => {
       GeoToools.processOnEachEntry(geojson, coords => {})
     }).to.throw('unsupported geometry type: LineStringX');
-    
+
   })
 
 });
