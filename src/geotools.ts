@@ -10,16 +10,16 @@ export class GeoToools {
     track: GeoJSON.FeatureCollection<GeoJSON.GeometryObject>,
     fn: ((coord: number[]) => void)
   ) => {
-    for( let feature of track.features) {
+    for( const feature of track.features) {
       if (feature.geometry.type === 'LineString') {
         const coordinates = (feature.geometry as LineString).coordinates;
-        for (let coord of coordinates) {
+        for (const coord of coordinates) {
           fn(coord);
         };
       } else if (feature.geometry.type === 'MultiLineString') {
         const coordinates = (feature.geometry as MultiLineString).coordinates;
-        for(let lineStringCoords of coordinates) {
-          for(let pointArray of lineStringCoords) {
+        for(const lineStringCoords of coordinates) {
+          for(const pointArray of lineStringCoords) {
             fn(pointArray);
           };
         };
