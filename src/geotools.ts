@@ -3,9 +3,8 @@ import { LineString, MultiLineString } from 'geojson';
 export class GeoToools {
   /**
    * @param {FeatureCollection<GeometryObject>} track
-   * @param {(coord: number[]) => void} fn die cooridnaten sind in der Reihenfolge lat, lng, ele
+   * @param {(coord: number[]) => void} fn die cooridnaten sind in der Reihenfolge lng, lat, ele
    */
-  // TODO umwandeln in for (let num of numbers) siehe https://jsperf.com/fast-array-foreach
   public static processOnEachEntry = (
     track: GeoJSON.FeatureCollection<GeoJSON.GeometryObject>,
     fn: ((coord: number[]) => void)
